@@ -3,6 +3,7 @@ apt-get update
 apt install qemu-user-static -y
 ls -la /proc/sys/fs/binfmt_misc
 docker run --rm --privileged multiarch/qemu-user-static:register --reset
+ls -la /proc/sys/fs/binfmt_misc
 docker buildx create --name mybuilder --use
 docker buildx inspect --bootstrap
 docker buildx ls
