@@ -1,0 +1,2 @@
+#!/bin/sh
+docker buildx build --platform=linux/aarch64,linux/amd64 --load -t "${IMAGE_NAME}" .
