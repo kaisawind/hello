@@ -1,6 +1,6 @@
 #!/bin/sh
 apt-get update
-apt install qemu-user-static -y
+apt install qemu binfmt-support qemu-user-static -y
 ls -la /proc/sys/fs/binfmt_misc
 docker run --rm --privileged multiarch/qemu-user-static:register --reset
 ls -la /proc/sys/fs/binfmt_misc
