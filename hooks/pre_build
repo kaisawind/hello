@@ -2,8 +2,10 @@
 apt-get update
 apt install qemu binfmt-support qemu-user-static -y
 ls -la /proc/sys/fs/binfmt_misc
-docker run --rm --privileged multiarch/qemu-user-static:register --reset
+ls -la /lib/modules/$(uname -r)/kernel/fs/
+docker run --rm --privileged multiarch/qemu-user-static:register --reset --debian
 ls -la /proc/sys/fs/binfmt_misc
+ls -la /lib/modules/$(uname -r)/kernel/fs/
 docker buildx create --name mybuilder --use
 docker buildx inspect --bootstrap
 docker buildx ls
